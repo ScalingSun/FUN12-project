@@ -32,5 +32,12 @@ namespace FUN12
             RequestForm frm = new RequestForm(userData);
             frm.Show();
         }
+
+        private void btnHistorie_Click(object sender, EventArgs e)
+        {
+            HistoryForm HistoryForm = new HistoryForm(userData);
+            this.Hide();
+            HistoryForm.Show();
+        }
     }
 }

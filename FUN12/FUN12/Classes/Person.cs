@@ -68,6 +68,38 @@ namespace FUN12
                 return null;
             }
         }
+        public List<Lend> UserLend(int userID)
+        {
+            List<Lend> PersonLend = new List<Lend>();
+            SQLConnection Lend = new SQLConnection();
+            using (SqlCommand connection = new SqlCommand("SELECT * FROM Lend WHERE UserID = @id", Lend.conn))
+            {
+                Lend.conn.Open();
+                connection.Parameters.Add(new SqlParameter("id", userID));
+                connection.ExecuteNonQuery();
 
+
+                SqlDataReader reader = connection.ExecuteReader();
+
+                if (reader.HasRows == false)
+                {
+                    return null;
+                }
+                while (reader.Read())
+                {
+
+                    int id = reader.GetInt32(0);
+                    int productID = reader.GetInt32(1);
+                    DateTime startdatum = reader.GetDateTime(2);
+                    DateTime einddatum = reader.GetDateTime(3);
+                    Lend test = new Lend(id, productID, startdatum, einddatum);
+                    PersonLend.Add(test);
+                }
+                Lend.conn.Close();
+
+                return PersonLend;
+
+            }
+        }
     }
 }

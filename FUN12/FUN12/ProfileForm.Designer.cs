@@ -155,6 +155,7 @@
             this.btnHistorie.TabIndex = 12;
             this.btnHistorie.Text = "Historie";
             this.btnHistorie.UseVisualStyleBackColor = true;
+            this.btnHistorie.Click += new System.EventHandler(this.btnHistorie_Click);
             // 
             // pictureBox1
             // 

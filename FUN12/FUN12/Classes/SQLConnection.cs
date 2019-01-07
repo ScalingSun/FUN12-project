@@ -10,7 +10,9 @@ namespace FUN12
     class SQLConnection
     {
         public SqlConnection conn;
-        const string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Tim\source\repos\FUN12\FUN12\FUN12.mdf;Integrated Security=True";
+        const string connectionString = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\timwi\source\repos\FUN12-project\FUN12\FUN12\FUN12.mdf;Integrated Security=True";
+        //home connection string: C:\Users\timwi\source\repos\FUN12-project\FUN12\FUN12\FUN12.mdf
+        //laptop connection string: C:\Users\Tim\source\repos\FUN12\FUN12\FUN12.mdf
         public SQLConnection()
         {
             conn = new SqlConnection(connectionString);

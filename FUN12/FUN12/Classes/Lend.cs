@@ -8,17 +8,24 @@ namespace FUN12
 {
     public class Lend
     {
-        int id;
-        int productid;
-        DateTime startdatum;
-        DateTime einddatum;
-        int UserID;
-        int aantal;
-        List<Lend> LendList = new List<Lend>();
+        public int id;
+        public int productid;
+        public DateTime startdatum;
+        public DateTime einddatum;
+        public int UserID;
+        public int aantal;
+        public List<Lend> LendList = new List<Lend>();
 
         public Lend(int aantal)
         {
             this.id = aantal;
+        }
+        public Lend(int id, int ProductID, DateTime startdatum, DateTime einddatum)
+        {
+            this.id = id;
+            this.productid = ProductID;
+            this.startdatum = startdatum;
+            this.einddatum = einddatum;
         }
         public Lend()
         {

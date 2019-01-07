@@ -90,6 +90,7 @@
             this.lbxProducts.Name = "lbxProducts";
             this.lbxProducts.Size = new System.Drawing.Size(233, 404);
             this.lbxProducts.TabIndex = 7;
+            this.lbxProducts.SelectedIndexChanged += new System.EventHandler(this.lbxProducts_SelectedIndexChanged);
             this.lbxProducts.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbxProducts_MouseDoubleClick);
             // 
             // label5

@@ -24,10 +24,15 @@ namespace FUN12
             this.startdatum = startdatum;
             this.einddatum = einddatum;
             this.aantal = aantal;
+            
+        }
+        public Product(string ProductName)
+        {
+            this.spulnaam = ProductName;
         }
         public Product()
         {
-
+            
         }
         public static List<Product> GetProducts(int id)
         {
@@ -106,6 +111,32 @@ namespace FUN12
                 Lend lend = new Lend();
                 lend.Remove1AtLend(item);
             }
+        }
+        public List<Product> GetProduct(int productID)
+        {
+            SQLConnection getProduct = new SQLConnection();
+            using (SqlCommand connection = new SqlCommand("SELECT Spulnaam FROM Product WHERE id = @ProductID", getProduct.conn))
+            {
+                getProduct.conn.Open();
+                connection.Parameters.Add(new SqlParameter("productID", productID));
+                SqlDataReader reader = connection.ExecuteReader();
+
+                if (!reader.HasRows)
+                {
+                    return null;
+                }
+
+                List<Product> productlist = new List<Product>();
+                while (reader.Read())
+                {
+                    
+                    string spulnaam = reader.GetString(0);
+                    Product test = new Product(spulnaam);
+                    productlist.Add(test);
+                }
+                return productlist;
+            }
+
         }
     }
 }

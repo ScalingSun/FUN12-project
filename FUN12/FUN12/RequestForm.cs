@@ -14,7 +14,7 @@ namespace FUN12
     {
         List<Category> categorylist = new List <Category>();
         List<Product> productlist = new List<Product>();
-        Category test = new Category();
+        Category category = new Category();
         Product producten = new Product();
         Person person = new Person();
         User userdata;
@@ -25,7 +25,7 @@ namespace FUN12
             lblFirstName.Text = userData.firstname;
             int categorytop = 50;
             int categoryleft = 12;
-           categorylist = test.GetCategories();
+           categorylist = category.GetCategories();
             
 
 
@@ -96,7 +96,6 @@ namespace FUN12
 
         private void Request_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("banana");
             string send = lbxProducts.SelectedItem.ToString();
             List<Product> details = Product.GetProductDetails(send);
             int itemID = details[0].id;
@@ -105,6 +104,11 @@ namespace FUN12
             int userID = userdata.id;
             producten.Lend(startdatum, einddatum, itemID,userID);
             MessageBox.Show("I hope it worked yes");
+        }
+
+        private void lbxProducts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
